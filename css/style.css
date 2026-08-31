@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Sarabun:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color: #181f18;
+    /* Nature green */
+    --secondary-color: #eecf46;
+    --accent-color: #3241cf;
+    --text-color: #2c3e50;
+    --bg-color: #f0efa9d3;
+    /* Light green-yellow nature */
+    --nav-bg: #745002;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Charm', cursive;
+    /* ฟอนต์ลายไทยร่วมสมัย */
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+header {
+    background-color: var(--nav-bg);
+    color: rgb(241, 238, 38);
+    text-align: center;
+    padding: 4rem 0;
+    background-image: url('https://images.unsplash.com/photo-1552423312-32b005167dbf?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(27, 94, 32, 0.6);
+}
+
+header h1 {
+    color: white;
+    position: relative;
+    z-index: 1;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header p {
+    color: white;
+    position: relative;
+    z-index: 1;
+    font-size: 1.2rem;
+    font-family: 'Charm', cursive;
+}
+
+nav {
+    background-color: var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: var(--secondary-color);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    transition: transform 0.3s;
+    border-top: 5px solid var(--secondary-color);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--nav-bg);
+}
+
+.btn-large {
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
+}
+
+/* Modal for Image and JS Interactions */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: 2%;
+    border-radius: 8px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #f1f1f1;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.alert-box {
+    background-color: #e8f5e9;
+    color: var(--nav-bg);
+    padding: 1.5rem;
+    border-left: 5px solid var(--secondary-color);
+    border-radius: 5px;
+    margin-top: 1.5rem;
+    display: none;
+    font-size: 1.1rem;
+}
+
+.map-container {
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 1.5rem;
+    border: 2px solid var(--accent-color);
+}
+
+footer {
+    background-color: var(--nav-bg);
+    color: #c8e6c9;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+ul.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+ul.contact-list li {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
